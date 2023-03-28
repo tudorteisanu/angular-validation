@@ -3,5 +3,12 @@
   "dest": "../../dist/nanoit-angular-modules",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "assets": [
+    {
+      "glob": "**/*",
+      "input": "src/css/",
+      "output": "/css/"
+    }
+  ]
 }

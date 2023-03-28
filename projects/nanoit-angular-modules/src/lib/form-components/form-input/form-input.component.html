@@ -1,5 +1,21 @@
-<div>
-  <label> test label </label>
-  <input type="text">
+<div class="form-input">
+  <div
+    class="form-input--container"
+  >
+    <div *ngIf="icon">
+      <img [src]="icon" alt="icon" />
+    </div>
+    <div class="form-input--wrapper">
+      <input
+        [type]="type"
+        #formInput
+        (input)="onChange(formInput.value)"
+        (focus)="onTouched()"
+        class="form-input--field"
+      />
+    </div>
+  </div>
+  <div class="form-input--error-message" *ngIf="areMessageShown">
+    {{ errorMessage }}
+  </div>
 </div>
-

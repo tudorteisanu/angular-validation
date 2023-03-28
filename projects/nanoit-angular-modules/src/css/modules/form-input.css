@@ -1,0 +1,19 @@
+.form-input {
+  @apply w-full mt-10;
+}
+
+.form-input--container {
+  @apply flex items-center justify-between rounded-full bg-[#F3F6FF] h-[52px] px-[18px];
+}
+
+.form-input--wrapper {
+  @apply w-full ml-2 h-full;
+}
+
+.form-input--field {
+  @apply w-full h-full bg-[#F3F6FF] outline-none;
+}
+
+.form-input--error-message {
+  @apply text-red-500 ml-4 text-sm mt-1;
+}
