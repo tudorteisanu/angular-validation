@@ -1,16 +1,5 @@
 import { Component } from '@angular/core';
-import {AbstractControl, FormControl, ValidationErrors, ValidatorFn, Validators} from '@angular/forms';
-
-export function isInteger(): ValidatorFn {
-  return ({value}:AbstractControl) : ValidationErrors | null => {
-    if (!value) {
-      return null;
-    }
-
-    const isInteger = Number.isInteger(value);
-    return !isInteger ? {isInteger}: null;
-  }
-}
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -23,13 +12,9 @@ export class AppComponent {
   customErrorMessages = {
     maxlength: 'Mother fucker {requiredLength}',
     isInteger: 'Mother fucker, insert an integer',
-  }
+  };
 
-  control = new FormControl(
-    '',
-    [
-      Validators.required,
-      isInteger()
-    ],
-  );
+  control = new FormControl('', {
+    validators: [Validators.required],
+  });
 }
