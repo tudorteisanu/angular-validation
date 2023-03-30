@@ -1,0 +1,18 @@
+<div class="max-w-lg m-auto mt-10 card">
+  <h1 class="font-bold text-center text-xl">Create User</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <FormInput formControlName="name" label="Name"></FormInput>
+    <FormInput
+      formControlName="email"
+      label="Email"
+      type="email"
+    ></FormInput>
+    <FormInput
+      formControlName="phone"
+      label="Phone"
+      type="phone"
+    ></FormInput>
+    <FormInput formControlName="address" label="Address"></FormInput>
+    <button primary size="md" type="submit" class="w-full mt-3">submit</button>
+  </form>
+</div>

@@ -2,3 +2,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  button[primary] {
+    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+  button[outline] {
+    @apply py-2 px-4 border border-blue-500 text-blue-500 font-semibold rounded-lg shadow-md hover:text-blue-700
+    focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
+  button[link] {
+    @apply p-0 text-blue-500 bg-transparent font-normal hover:text-blue-700 outline-none;
+  }
+  button[size="sm"] {
+    @apply p-1;
+  }
+  button[size="md"] {
+    @apply p-2;
+  }
+  button[size="lg"] {
+    @apply p-3;
+  }
+  button[size="xl"] {
+    @apply p-4;
+  }
+
+  .card {
+    @apply shadow-lg p-8 transition-all;
+  }
+
+  *[type] {
+    @apply border-0 p-0 m-0;
+  }
+}

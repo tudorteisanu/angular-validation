@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
-import {PaginationMetaInterface} from "../../../ts/interfaces";
+import {PaginationMetaInterface} from "../../ts/interfaces";
 
 const PAGES_TO_DISPLAY = 5;
 

@@ -12,8 +12,8 @@
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "paths": {
-      "@nanoit-angular-modules/*": [
-        "projects/nanoit-angular-modules/src/lib/*"
+      "@modules": [
+        "projects/modules/src/lib"
       ]
     },
     "declaration": false,
@@ -30,7 +30,7 @@
     ]
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
+    "enableI18nLegacyMessageIdFormat": true,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true

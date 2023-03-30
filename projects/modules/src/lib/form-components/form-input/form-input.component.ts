@@ -4,7 +4,7 @@ import {
   NgControl,
   ValidationErrors,
 } from '@angular/forms';
-import { ValidationMessagesService } from '@nanoit-angular-modules/services';
+import { ValidationMessagesService } from '../../services';
 
 @Component({
   selector: 'FormInput',
@@ -18,7 +18,10 @@ export class FormInputComponent implements ControlValueAccessor {
   @Input() placeholder = '';
   @Input() label = '';
 
-  constructor(@Self() @Optional() public control: NgControl) {
+  constructor(
+    @Self() @Optional() public control: NgControl,
+    private validationMessages: ValidationMessagesService
+  ) {
     this.control.valueAccessor = this;
   }
 
@@ -31,10 +34,7 @@ export class FormInputComponent implements ControlValueAccessor {
   }
 
   get errorMessage() {
-    return new ValidationMessagesService(
-      this.errors,
-      this.customMessages
-    ).getErrorMessages();
+    return this.validationMessages.getErrorMessages(this.errors);
   }
 
   get inputPlaceholder(): string {
@@ -50,7 +50,15 @@ export class FormInputComponent implements ControlValueAccessor {
       return 'ring-gray-300 placeholder:text-gray-400 focus:ring-gray-500 text-gray-900';
     }
 
-    return 'ring-red-300 placeholder:text-red-300 focus:ring-red-500 text-red-900';
+    return 'ring-red-300 placeholder:text-red-300 focus:ring-red-500 text-red-500 focus:outline-none';
+  }
+
+  get labelClass(): string {
+    if (this.isValid) {
+      return 'text-gray-900';
+    }
+
+    return 'text-red-500';
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

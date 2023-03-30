@@ -1,14 +1,10 @@
 import { ValidationErrors } from '@angular/forms';
-import { DEFAULT_ERROR_MESSAGES } from '../../ts/consts';
+import { DEFAULT_ERROR_MESSAGES } from '../ts/consts';
+import {Injectable} from "@angular/core";
 
+@Injectable({providedIn: "root"})
 export class ValidationMessagesService {
-  errors: ValidationErrors | null;
   customMessages: Record<string, any> = {};
-
-  constructor(errors: ValidationErrors | null, customMessages = {}) {
-    this.errors = errors;
-    this.customMessages = customMessages;
-  }
 
   get errorMessages() {
     return {
@@ -17,14 +13,16 @@ export class ValidationMessagesService {
     };
   }
 
-  getErrorMessages() {
-    if (!this.errors) {
+  public setCustomMessages(messages: any): void {
+    this.customMessages = messages;
+  }
+
+  getErrorMessages(errors: ValidationErrors | null) {
+    if (!errors) {
       return '';
     }
 
-    return Object.entries(this.errors)
-      .map(this.optionsMapFn.bind(this))
-      .join(', ');
+    return Object.entries(errors).map(this.optionsMapFn.bind(this)).join(', ');
   }
 
   optionsMapFn(item: any) {
